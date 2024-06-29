@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addNote, deleteNote, getNote, getNotes, updateNote,  } from "../controllers/note.js";
+import { addNote, deleteNote, getActiveNotes, getCompletedNotes, getNote, getNotes, updateNote,  } from "../controllers/note.js";
 
 //create a router
 
@@ -8,20 +8,26 @@ const noteRouter = Router();
 //define Routes
 
 //Post a Note Route
-noteRouter.post("/",addNote)
+noteRouter.post("/notes",addNote)
 
 //Get All Notes Route 
-noteRouter.get("/", getNotes)
+noteRouter.get("/notes", getNotes)
 
 //Get a single Note Route
-noteRouter.get('/:id',getNote)
+noteRouter.get('/notes/:id',getNote)
+
+//Get All active Notes
+noteRouter.get('/active', getActiveNotes)
+
+//Get All completed Notes
+noteRouter.get('/completed', getCompletedNotes)
 
 //Patch a Note Route
-noteRouter.patch('/:id',updateNote)
+noteRouter.patch('/notes/:id',updateNote)
 
 
 //Delete a Note Route
-noteRouter.delete('/:id',deleteNote)
+noteRouter.delete('/notes/:id',deleteNote)
 
 
 // export the router

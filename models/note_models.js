@@ -28,4 +28,4 @@ const noteSchema = new Schema({
 noteSchema.plugin(toJSON)
 
 
-export const NoteModel = model('Note', noteSchema);
+export const NoteModel = model('note', noteSchema);
